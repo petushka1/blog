@@ -8,8 +8,6 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.datetime :UpdatedAt
       t.integer :CommentsCounter
       t.integer :LikesCounter
-
-      t.timestamps
     end
   end
 end

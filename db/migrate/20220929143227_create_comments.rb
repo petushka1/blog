@@ -6,8 +6,6 @@ class CreateComments < ActiveRecord::Migration[7.0]
       t.text :Text
       t.datetime :UpdatedAt
       t.datetime :CreatedAt
-
-      t.timestamps
     end
   end
 end

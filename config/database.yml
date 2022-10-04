@@ -1,59 +1,22 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem "sqlite3"
-#
 default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: blog
-  username: rails
-  password: <%= ENV["PROJECT_DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
-
-production:
-  <<: *default
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: projectname
-  pool:
+  database: blog_development
   username: rails
   password: rails
-  
+
 test:
   <<: *default
-  database: db/test.postgresql
+  database: blog_test
   username: rails
   password: rails
 
 production:
   <<: *default
-  database: db/production.postgresql
+  database: blog_production
+  username: rails
+  password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>

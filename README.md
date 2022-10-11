@@ -1,8 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Ruby Capstone Project
-
-- OOP school library 
+# Blog app
 
 ## Project Description 
 

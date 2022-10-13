@@ -2,10 +2,10 @@
 <% @posts.each do |post| %>
   <div><%= render(template: 'layouts/post_of_user', locals: {post: post}) %></div>
   <ul>
-    <% post.five_recent_comments do |comment| %>
-      <li><%= comment.author.name %>: <%= comment.text %></li>
-    <% end %>
+    <%= render 'details/comment', post: post %>
   </ul>
 <% end %>
 
-<button type="button">Pagination</button>
+
+
+<button type="button" class="pagination">Pagination</button>

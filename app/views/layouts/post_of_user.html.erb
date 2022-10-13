@@ -1,8 +1,11 @@
+<a href="<%= post.id %>">
 <div>
-  <h4>Post #<%= post.title %></h4>
+  <h4>Post #<%= post.id %><%= post.title %></h4>
   <p><%= post.text %></p>
   <p>
     <span>Comments: <%= post.comments_counter || 0 %></span>
     <span>Likes: <%= post.likes_counter || 0 %></span>
   </p>
 </div>
+<a>
+

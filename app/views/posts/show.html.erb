@@ -6,3 +6,9 @@
   </h3>
   <p><%= @post.text %></p>
 </div>
+
+<ul>
+  <% @comments_all.each do |comment| %>
+    <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
+  <% end %>
+</ul>

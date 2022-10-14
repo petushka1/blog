@@ -13,7 +13,7 @@
   <% end %>
 </ul>
 <div>
-<%= render 'comments/comment', post: @post %>
+<%= link_to  "Create new Comment", new_user_post_comment_path(@post.author, @post)  %>
 </div>
 <div>
 <%= render 'likes/like', post: @post %>

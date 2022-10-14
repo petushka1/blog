@@ -1,4 +1,11 @@
 class CommentsController < ApplicationController
+  def new
+    Comment.new
+    respond_to do |r|
+      r.html { render :new, locals: { comment: @comment } }
+    end
+  end
+
   def create
     comment = Comment.new(comment_params)
     respond_to do |r|

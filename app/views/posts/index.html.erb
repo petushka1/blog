@@ -1,4 +1,6 @@
 <%= render(template: 'layouts/user_of_post', locals: {author: @author}) %>
+<%= link_to 'Add New Post', new_user_post_path(@author) %>
+
 <% @posts.each do |post| %>
   <div><%= render(template: 'layouts/post_of_user', locals: {post: post}) %></div>
   <ul>

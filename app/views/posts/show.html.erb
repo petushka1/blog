@@ -12,3 +12,9 @@
     <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
   <% end %>
 </ul>
+<div>
+<%= render 'comments/comment', post: @post %>
+</div>
+<div>
+<%= render 'likes/like', post: @post %>
+</div>

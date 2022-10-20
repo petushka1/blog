@@ -1,0 +1,56 @@
+require 'rails_helper'
+
+RSpec.describe 'Check User Story', type: :feature do
+  let(:users) { User.all }
+
+  before(:all) do
+    (1..4).each do |i| 
+      User.create(
+      name: "User #{i}",
+      posts_counter: 0,
+      bio: "User #{i} Bio",
+      photo: "https://#{i}/img.png"
+    )
+
+    @user = User.first
+
+    Post.create(
+      author: @user,
+      title: 'Post of User', text: 'Post text content',
+      likes_counter: 0,
+      comments_conter: 0
+    )
+  end
+end
+
+  describe 'User Index' do
+
+    before(:each) do
+      before { visit(root_path) }
+    end
+
+    it 'should contain user names' do
+      users.each do |user|
+        expect(page).to have_content(user.name)
+      end
+    end
+
+    it 'I can see the profile picture for each user' do
+        users.each do |user|
+            expect(page).to have_xpath("//img[contains(@src,'#{user.photo}')]")
+        end
+      end
+
+      it 'I can see the number of posts each user has written' do
+        users.each do |user|
+            expect(page).to have_css("//p", text: author.posts_counter)
+        end
+      end
+
+      it 'When I click on a user, I am redirected to that user\'s show page' do
+        redirect_path = user_path(@user)
+        page.find("[href='#{redirect_path}']").click
+        expect(current_path).to eq(redirect_path)
+      end
+  end
+end

@@ -55,7 +55,7 @@ RSpec.describe 'Check User Story', type: :feature do
     end
 
     it 'When I click on a post, it redirects me to that post\'s show page.' do
-      expect(page).to_not have_css("[href='#{user_post_path(@user, @post)}']")
+      expect(page).to have_css("[href='#{user_post_path(@user, @post)}']")
     end
 
     describe 'Post Comments' do

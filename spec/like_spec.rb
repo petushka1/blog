@@ -1,6 +1,6 @@
 require_relative 'rails_helper'
 
-describe Comment, type: :model do
+RSpec.describe Comment, type: :model do
   before(:each) do
     @user = User.create(
       name: 'Test User-1',

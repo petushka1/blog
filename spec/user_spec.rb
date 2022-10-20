@@ -1,6 +1,6 @@
 require_relative 'rails_helper'
 
-describe User, type: :model do
+RSpec.describe User, type: :model do
   before(:each) do
     @user = described_class.create(
       name: 'Mike',

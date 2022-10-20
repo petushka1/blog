@@ -1,6 +1,6 @@
 require_relative 'rails_helper'
 
-describe Post, type: :model do
+RSpec.describe Post, type: :model do
   before(:each) do
     @user = User.create(name: 'Test User-1', photo: 'https://testimage.url', bio: 'Test Bio Information',
                         posts_counter: 0)

@@ -1,5 +1,6 @@
 <a title="Show" href="<%= user_path(author) %>">
-  <img src=<% author.photo %>
+
+  <%= image_tag(author.photo || '') %>
   <div>
     <h3><%= author.name %></h3>
     <p>Number of posts: <%= author.posts_counter || 0 %></p>

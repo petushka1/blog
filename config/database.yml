@@ -5,18 +5,18 @@ default: &default
 
 development:
   <<: *default
-  database: blog_development
+  database: auth_development
   username: rails
   password: rails
 
 test:
   <<: *default
-  database: blog_test
+  database: auth_test
   username: rails
   password: rails
 
 production:
   <<: *default
-  database: blog_production
+  database: auth_production
   username: rails
   password: <%= ENV["BLOG_DATABASE_PASSWORD"] %>

@@ -1,16 +1,13 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     can :read, Post
     can :read, Comment
     can :read, Like
 
     return unless user.present?
-    
+
     can :create, Post
     # can :create, Like
     can(:destroy, Post, author: user)
@@ -21,7 +18,7 @@ class Ability
     return unless user.admin?
 
     can :manage, :all
-    
+
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?

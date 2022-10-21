@@ -6,3 +6,5 @@
     <p>Number of posts: <%= author.posts_counter || 0 %></p>
   </div>
 </a>
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>

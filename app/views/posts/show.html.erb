@@ -13,8 +13,16 @@
   <% end %>
 </ul>
 <div>
+
+<% if can?(:create, @post) %>
 <%= link_to  "Create new Comment", new_user_post_comment_path(@post.author, @post)  %>
+<% end %>
+
 </div>
 <div>
 <%= render 'likes/like', post: @post %>
+
+<% if can?(:destroy, @post) %>
+<%= button_to("Delete", user_post_path(current_user, @post), method: :delete) %>
+<% end %>
 </div>

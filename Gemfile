@@ -48,6 +48,7 @@ gem 'tzinfo-data', '~> 1.2021', '>= 1.2021.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'cancancan'
 gem 'devise'
 
 # Use Sass to process CSS

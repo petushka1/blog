@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @posts = Post
       .includes(:author)
@@ -31,6 +33,20 @@ class PostsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    Post.find_by(destroy_params).destroy
+    redirect_to user_path(current_user)
+  end
+
+  private
+
+  def destroy_params
+    {
+      id: params[:id],
+      author_id: current_user.id
+    }
   end
 
   def post_params

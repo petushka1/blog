@@ -1,7 +1,8 @@
 <div>
     <ul>
       <% post.five_recent_comments.each do |comment| %>
-        <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
+        <li><b><%= comment.author.name %>:</b> <%= comment.text %>
+      </li>
     <% end %>
     </ul>
 </div>

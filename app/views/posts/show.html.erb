@@ -9,7 +9,11 @@
 
 <ul>
   <% @comments.each do |comment| %>
-    <li><b><%= comment.author.name %>:</b> <%= comment.text %></li>
+    <li><b><%= comment.author.name %>:</b> <%= comment.text %>
+       <% if can?(:destroy, comment) %>
+          <%= button_to("X", user_post_comment_path(current_user, @post, comment), method: :delete) %>
+        <% end %>
+    </li>
   <% end %>
 </ul>
 <div>
@@ -20,9 +24,11 @@
 
 </div>
 <div>
+<br>
 <%= render 'likes/like', post: @post %>
 
 <% if can?(:destroy, @post) %>
+<br>
 <%= button_to("Delete", user_post_path(current_user, @post), method: :delete) %>
 <% end %>
 </div>

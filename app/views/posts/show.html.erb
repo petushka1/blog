@@ -1,0 +1,34 @@
+<div>
+  <h3>
+    <span>Post #<%= @post.id %><%= @post.title %></span> <span>by <%= @post.author.name %></span>
+    <span>comments: <%= @post.comments_counter %></span>, 
+    <span>Likes: <%= @post.likes_counter %></span>
+  </h3>
+  <p><%= @post.text %></p>
+</div>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li><b><%= comment.author.name %>:</b> <%= comment.text %>
+       <% if can?(:destroy, comment) %>
+          <%= button_to("X", user_post_comment_path(current_user, @post, comment), method: :delete) %>
+        <% end %>
+    </li>
+  <% end %>
+</ul>
+<div>
+
+<% if can?(:create, @post) %>
+ <%= link_to  "Create new Comment", new_user_post_comment_path(@post.author, @post)  %>
+<% end %>
+
+</div>
+<div>
+<br>
+<%= render 'likes/like', post: @post %>
+
+<% if can?(:destroy, @post) %>
+<br>
+<%= button_to("Delete", user_post_path(current_user, @post), method: :delete) %>
+<% end %>
+</div>

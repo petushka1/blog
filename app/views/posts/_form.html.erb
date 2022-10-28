@@ -1,0 +1,13 @@
+<%= form_with model: post, url: user_posts_path(author), method: :post, local: true, scope: :post do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, { placeholder: 'Title', required: true } %>
+  </div>
+
+  <div>
+    <%= f.label :text %>
+    <%= f.text_area :text, { placeholder: 'Your text', required: true } %>
+  </div>
+
+  <%= f.submit 'Add Post' %>
+<% end %>
